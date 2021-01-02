@@ -1,2 +1,3 @@
 # functional-vuex-store
-Created with CodeSandbox
+
+Exercices to find functional patterns around data fetching and manipulation
