@@ -53,15 +53,14 @@ const store = new Vuex.Store({
           andThen(attachTodos),
           andThen(extractUserFields)
         ],
-        apiCalls: [api.getUsers(), api.getTodos()]
+        from: [api.getUsers(), api.getTodos()]
       };
 
       pipe(
         ...getUsers.pipeline,
         andThen(commit("SET_USERS")),
-        /* otherwise catches promises rejection but also runtime errors */
         otherwise(commit("SET_ERROR"))
-      )(getUsers.apiCalls);
+      )(getUsers.from);
     }
   }
 });
